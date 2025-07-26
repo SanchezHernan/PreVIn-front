@@ -1,0 +1,14 @@
+.panel-top {
+  background-color: var(--color-amarillo);
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+
+  h3 {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+}

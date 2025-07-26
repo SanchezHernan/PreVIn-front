@@ -1,0 +1,8 @@
+<mat-form-field>
+    <mat-label> {{ placeholder }} </mat-label>
+    <mat-select>
+        @for (el of elements; track el.id) {
+        <mat-option [value]="el.id">{{ el.value }}</mat-option>
+        }
+    </mat-select>
+</mat-form-field>

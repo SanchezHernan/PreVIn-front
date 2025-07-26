@@ -1,0 +1,154 @@
+<div class="documentos-wrapper">
+  <!-- Encabezado -->
+  <div class="text-center">
+    <div class="drow jc-space-around">
+      <div>
+        <app-circ-icon icon="description" />
+        +
+        <app-circ-icon icon="map" />
+      </div>
+      <!-- <mat-icon class="icon-lg">map</mat-icon> -->
+      <h2><b>Documentos</b><br />y Planos</h2>
+    </div>
+    <h4>Rodriguez Peña, Luciano Raúl (ARQUITECTO)</h4>
+    <h5 class="subtitulo">Relevamiento/Conforme a Obra</h5>
+  </div>
+
+  <!-- Sección: Planos de construcción -->
+  <div class="dcol border2">
+    <mat-card-title class="card-title2 w509">
+      PLANOS DE CONSTRUCCIÓN según Art. 2.1.3 del Código de Edificación
+    </mat-card-title>
+
+    <div *ngFor="let plano of planosConstruccion.controls; let i = index" [formGroup]="plano" class="fila-item">
+      
+      <div class="dcol">
+        <h3>Plano de primer corte</h3>
+        <mat-form-field class="campo-desc" appearance="outline">
+          <mat-label>Descripción</mat-label>
+          <input matInput formControlName="descripcion" />
+        </mat-form-field>
+      </div>
+      
+      <div class="dcol">
+        <!-- <span class="archivo-nombre">{{ getNombreArchivo(plano) }}</span> -->
+        <h3>Archivo</h3>
+        <div class="campo-desc">
+          <input type="file" #fileInput (change)="onFileSelected($event, planosConstruccion, i)" />
+        </div>
+      </div>
+
+      <div class="dcol">
+        <button mat-icon-button color="warn" (click)="removeFila(planosConstruccion, i)">
+          <mat-icon>cancel</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="fileInput.click()">
+          <mat-icon>check_circle</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <!-- Sección: Planillas de vivienda o cómputo -->
+  <div class="dcol border2">
+    <mat-card-title class="card-title2 w503">
+      PLANILLA DE CATEGORÍA DE VIVIENDA o CÓMPUTO Y PRESUPUESTO
+    </mat-card-title>
+
+    <div *ngFor="let planilla of planillasVivienda.controls; let j = index" [formGroup]="planilla" class="fila-item">
+      <div class="dcol">
+        <h3>Primer Planilla de Cat de Vivienda</h3>
+        <mat-form-field class="campo-desc" appearance="outline">
+          <mat-label>Descripción</mat-label>
+          <input matInput formControlName="descripcion" />
+        </mat-form-field>
+      </div>
+
+      <div class="dcol">
+        <!-- <span class="archivo-nombre">{{ getNombreArchivo(plano) }}</span> -->
+        <h3>Archivo</h3>
+        <div class="campo-desc">
+          <input type="file" #fileInput (change)="onFileSelected($event, planosConstruccion, j)" />
+        </div>
+      </div>
+
+      <div class="dcol">
+        <!-- <span class="archivo-nombre">{{ getNombreArchivo(planilla) }}</span> -->
+        <input type="file" hidden #fileInput2 (change)="onFileSelected($event, planillasVivienda, j)" />
+        <button mat-icon-button color="warn" (click)="removeFila(planillasVivienda, j)">
+          <mat-icon>cancel</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="fileInput2.click()">
+          <mat-icon>check_circle</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="text-center mt-2">
+      <button mat-icon-button color="accent" (click)="addFila(planillasVivienda)">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div style="background-color: lightcyan; border-radius: 10px; padding: 10px; margin: 25px 0;">
+    <ul>
+      <li>INFORME DE HIGIENE y SEGURIDAD del edificio</li>
+      <li>ESQUEMA DE CALCULO DE FOS - FOT</li>
+      <li>ESQUEMA DE ALTURA MAXIMA y LINEA DE FRENTE INTERNO</li>
+      <li>FACTIBILIDAD DE SERVICIOS SANITARIOS</li>
+      <li>FACTIBILIDAD DE SERVICIO ELECTRICO DE ENERSA para más de cuatro (4) unidades locativas</li>
+      <li>PLANO VEREDA - RELEVAMIENTO ARBOLES (medidas, niveles, materilalización)</li>
+    </ul>
+  </div>
+
+
+  <div class="dcol border2" style="margin-bottom: 10px;">
+    <mat-card-title class="card-title2 w503">
+      PLANO VEREDA - RELEVAMIENTO ARBOLES (medidas, niveles, materilalización) 
+    </mat-card-title>
+    <div class="fila-item">
+      <div class="dcol">
+        <h3>Plano Vereda v1</h3>
+        <mat-form-field class="campo-desc" appearance="outline">
+          <mat-label>Descripción</mat-label>
+          <input matInput formControlName="descripcion" />
+        </mat-form-field>
+      </div>
+
+      <div class="dcol">
+        <!-- <span class="archivo-nombre">{{ getNombreArchivo(plano) }}</span> -->
+        <h3>Archivo</h3>
+        <div class="campo-desc">
+          <input type="file" #fileInput (change)="onFileSelected($event, planosConstruccion, 1)" />
+        </div>
+      </div>
+
+      <div class="dcol">
+        <input type="file" hidden #fileInput2 (change)="onFileSelected($event, planillasVivienda, 1)" />
+        <button mat-icon-button color="warn" (click)="removeFila(planillasVivienda, 1)">
+          <mat-icon>cancel</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="fileInput2.click()">
+          <mat-icon>check_circle</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="text-center mt-2">
+      <button mat-icon-button color="accent" (click)="addFila(planillasVivienda)">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+  
+
+  <!-- Botón de envío -->
+  <div class="text-center mt-2">
+    <button mat-raised-button color="primary" (click)="onSubmit()">
+      Presentar Documentos y Planos
+    </button>
+  </div>
+</div>

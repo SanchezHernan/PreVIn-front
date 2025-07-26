@@ -1,0 +1,45 @@
+.documentos-wrapper {
+  background: var(--color-celeste); // celeste claro
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+
+.subtitulo {
+  margin-top: 1rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.card-bloque {
+  margin: 2rem 0;
+  padding: 1rem;
+  border: 1px solid #333;
+}
+
+.fila-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.campo-desc {
+  flex: 2;
+}
+
+.campo-archivo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 2;
+}
+
+.archivo-nombre {
+  font-size: 0.9rem;
+  font-style: italic;
+  max-width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

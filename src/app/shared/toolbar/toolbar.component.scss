@@ -1,0 +1,44 @@
+mat-toolbar {
+
+    justify-content: center;
+    background-color: white;
+    height: 95px;
+
+
+    .imgContainer {
+        width: 70%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .toolbar-image {
+        height: 95px;
+    }
+
+    .menu-button {
+        display: none;
+    }
+
+
+    
+}
+
+
+// rgba(103, 58, 183, 0.87); #311b92;
+  
+
+@media (max-width: 600px) {
+    mat-toolbar {
+
+        justify-content: space-between;
+
+        .example-spacer {
+            display: none;
+        }
+
+        .menu-button {
+            display: flex;
+            flex: end;
+        }
+    }
+}

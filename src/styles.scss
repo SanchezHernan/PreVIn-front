@@ -1,1 +1,88 @@
-/* You can add global styles to this file, and also import other style files */
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+:root {
+  --color-salmon: #f7d5bd;
+  --color-celeste: #96d9ec;
+  --color-amarillo: #ffe499;
+}
+
+.dcol {
+  display: flex;
+  flex-direction: column;
+}
+
+.drow {
+  display: flex;
+  flex-direction: row;
+}
+
+.borderless {
+  border: none;
+}
+
+.gap10{
+  gap: 10px;
+}
+
+.f1 { flex: 1; }
+.f2 { flex: 2; }
+.f3 { flex: 3; }
+.f4 { flex: 4; }
+
+.wrap     { flex-wrap: wrap; }
+.nowrap   { flex-wrap: nowrap; }
+.jc-center { justify-content: center; }
+.jc-between { justify-content: space-between; }
+.jc-space-around { justify-content: space-around; }
+.jc-end { justify-content: flex-end; }
+.ai-center { align-items: center; }
+
+.text-center { text-align: center; }
+
+.card-title {
+  background-color: var(--color-salmon);
+  margin: -30px 0 10px 0;
+  padding: 0 6px;
+}
+
+.card-title2 {
+  background-color: var(--color-celeste);
+  margin: -25px 0 10px 0;
+  padding: 0 6px;
+}
+
+.border2 {
+  border: 2px solid; // color salmón claro
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.w150 { width: 150px; }
+.w177 { width: 177px; }
+.w242 { width: 242px; }
+.w503 { width: 503px; }
+.w509 { width: 509px; }
+.wfull { width: 100%; }

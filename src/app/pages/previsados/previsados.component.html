@@ -1,0 +1,245 @@
+<!-- catastrales.component.html  -->
+<form
+  class="catastral-wrapper"
+  [formGroup]="catastralForm"
+  (ngSubmit)="onSubmit()"
+>
+
+  <!-- Encabezado -->
+  <section class="header">
+    <div class="header__content">
+      <app-circ-icon icon="badge" />
+      <h2 class="header__title">Datos<br />Catastrales</h2>
+    </div>
+    <h3 class="header__subtitle">
+      Rodriguez Peña, Luciano Raúl <span class="italic">(ARQUITECTO)</span>
+    </h3>
+  </section>
+
+  <!-- Tipo de inmueble / obra ----------------------------------------- -->
+  <div class="mb-4">
+    <div class="drow jc-space-around">
+      <!-- Inmueble -->
+      <div class="drow">
+        <span for="tipoInmueble" class="section-label">Tipo de Inmueble:</span>
+        <mat-radio-group formControlName="tipoInmueble" class="dcol">
+          <mat-radio-button value="hasta3">Hasta 3 pisos</mat-radio-button>
+          <mat-radio-button value="mas3">Más de 3 pisos</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <!-- Obra -->
+      <div class="drow">
+        <label class="section-label">Tipo de Obra:</label>
+        <mat-radio-group formControlName="tipoObra" class="dcol">
+          <mat-radio-button
+            *ngFor="let t of tiposObra"
+            [value]="t.value"
+            >{{ t.label }}</mat-radio-button
+          >
+        </mat-radio-group>
+      </div>
+    </div>
+  </div>
+
+  <!-- Datos inmueble y catastrales ------------------------------------- -->
+  <div class="mb-4 dcol border2">
+    <mat-card-title class="card-title w257">DATOS INMUEBLE Y CATASTRALES</mat-card-title>
+    
+    <!-- Ejemplos; repite patrón para los demás campos -->
+    <mat-form-field appearance="outline">
+      <mat-label>Partida</mat-label>
+      <input matInput formControlName="partida" />
+    </mat-form-field>
+
+    <div class="drow" style="gap: 1rem;">
+      <mat-form-field class="f3" appearance="outline">
+        <mat-label>Calle</mat-label>
+        <input matInput formControlName="calle" />
+        <button matSuffix mat-icon-button (click)="buscarCalle()">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field class="f1" appearance="outline">
+        <mat-label>Número</mat-label>
+        <input matInput formControlName="numero" />
+      </mat-form-field>
+    </div>
+
+    <!-- Matricula / Año - Plano de Mensura -->
+    <div class="drow" style="gap: 1rem;">
+      <mat-form-field class="f3" appearance="outline">
+        <mat-label>Matrícula</mat-label>
+        <input matInput formControlName="matricula" />
+      </mat-form-field>
+      /
+      <mat-form-field class="f1" appearance="outline">
+        <mat-label>Año</mat-label>
+        <input matInput formControlName="anio" />
+      </mat-form-field>
+
+      <mat-form-field class="f2" appearance="outline">
+        <mat-label>Plano de Mensura</mat-label>
+        <input matInput formControlName="planoMensura" />
+      </mat-form-field>
+    </div>
+
+    <!-- Cuartel - Seccion - Lote -->
+    <div class="drow" style="gap: 1rem;">
+      <mat-form-field class="f1" appearance="outline">
+        <mat-label>Cuartel</mat-label>
+        <input matInput formControlName="cuartel" />
+      </mat-form-field>
+      <mat-form-field class="f1" appearance="outline">
+        <mat-label>Sección</mat-label>
+        <input matInput formControlName="seccion" />
+      </mat-form-field>
+      <mat-form-field class="f1" appearance="outline">
+        <mat-label>Lote/Parcela</mat-label>
+        <input matInput formControlName="lote" />
+      </mat-form-field>
+    </div>
+
+    <!-- Distrito - Manzana -->
+    <div class="drow" style="gap: 1rem;">
+      <mat-form-field class="f1" appearance="outline">
+        <mat-label>Distrito</mat-label>
+        <input matInput formControlName="distrito" />
+      </mat-form-field>
+      <mat-form-field class="f1" appearance="outline">
+        <mat-label>Manzana</mat-label>
+        <input matInput formControlName="manzana" />
+      </mat-form-field>
+    </div>
+
+    <!-- osm - tgi -->
+    <div class="drow" style="gap: 1rem;">
+      <mat-form-field class="f1" appearance="outline">
+        <mat-label>Cta. OSM</mat-label>
+        <input matInput formControlName="ctaOsm" />
+      </mat-form-field>
+      <mat-form-field class="f1" appearance="outline">
+        <mat-label>Cta. TGI</mat-label>
+        <input matInput formControlName="ctaTgi" />
+      </mat-form-field>
+    </div>
+    
+    <div class="drow" style="justify-content: space-around;">
+      <!-- Tipo de posesión -->
+      <div class="col-span-2 drow">
+        <label class="section-label">Tipo de Posesión:<span class="req">*</span></label>
+        <mat-radio-group formControlName="posesion" class="dcol">
+          <mat-radio-button value="propietario">Propietario</mat-radio-button>
+          <mat-radio-button value="poseedor">Poseedor</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <!-- DNI + archivo -->
+      <div class="file-upload dcol">
+          <mat-form-field class="f1" appearance="outline">
+            <mat-label>DNI</mat-label>
+            <input matInput formControlName="ctaOsm" />
+          </mat-form-field>
+          <input
+              type="file"
+              (change)="onFileSelected($event, 'dniFile')"
+              accept=".pdf,.jpg,.png"
+          />
+      </div>
+    </div>
+    <br/>
+    <!-- Apellidos / Nombres -->
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Apellidos</mat-label>
+      <input matInput formControlName="apellidos" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Nombres</mat-label>
+      <input matInput formControlName="nombres" />
+    </mat-form-field>
+  </div>
+
+  <!-- Restricciones ----------------------------------------------------- -->
+  <div class="mb-4 dcol border2">
+    <mat-card-title class="card-title w120">RESTRICCIONES</mat-card-title>
+    <div class="grid gap-2 dcol">
+      <div class="drow">
+        <label class="w75p textAlignEnd mr5" for="lotes">LOTES +5000 m² (Prolongación de calles):</label>
+        <input type="file" id="lotes" (change)="onFileSelected($event, 'fileLotes5000')" class="file-input" />
+      </div>
+      <div class="drow">
+        <label class="w75p textAlignEnd mr5" for="canadas">CAÑADAS:</label>
+        <input type="file" id="canadas" (change)="onFileSelected($event, 'fileCanadas')" class="file-input" />
+      </div>
+      <div class="drow">
+        <label class="w75p textAlignEnd mr5" for="gasnea">RESTRICCIONES GAS NEA:</label>
+        <input type="file" id="gasnea" (change)="onFileSelected($event, 'fileGasNea')" class="file-input" />
+      </div>
+      <div class="drow">
+        <label class="w75p textAlignEnd mr5" for="enersa">RESTRICCIONES ENERSA:</label>
+        <input type="file" id="enersa" (change)="onFileSelected($event, 'fileEnersa')" class="file-input" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Destino de la obra ----------------------------------------------- -->
+  <div class="mb-4 dcol border2">
+    <mat-card-title class="card-title w159">DESTINO DE LA OBRA</mat-card-title>
+    <div class="row-flex">
+      <!-- Lista múltiple -->
+      <mat-form-field appearance="outline" class="w-60">
+        <mat-label>Tipo Construcción</mat-label>
+        <mat-select
+          formControlName="destinos"
+          multiple
+          [compareWith]="cmp"
+          size="6"
+        >
+          <mat-option *ngFor="let d of destinos" [value]="d">{{ d }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Cantidad + botones -->
+      <div class="destino-actions">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Cantidad</mat-label>
+          <input matInput type="number" min="1" formControlName="cantidadDestinos" />
+        </mat-form-field>
+
+        <div class="btn-group">
+          <button mat-icon-button color="primary" (click)="addDestino()">
+            <mat-icon>add</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="removeDestino()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Antecedente ------------------------------------------------------- -->
+  <!-- <mat-card class="mb-4">
+    <div class="row-flex">
+      <mat-form-field appearance="outline" class="w-50">
+        <mat-label>Antecedente – Plano Expte Nº (si posee)</mat-label>
+        <input matInput formControlName="antecedente" />
+      </mat-form-field>
+
+      <input
+        type="file"
+        matInput
+        class="file-input w-50"
+        formControlName="fileAntecedente"
+      />
+    </div>
+  </mat-card> -->
+
+  <!-- Botón principal --------------------------------------------------- -->
+  <div class="text-center mb-4 drow" style="justify-content: center;">
+    <button mat-raised-button color="primary" type="submit">
+      Presentar Datos Catastrales
+    </button>
+  </div>
+</form>

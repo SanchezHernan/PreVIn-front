@@ -1,0 +1,21 @@
+<div class="card-visado"
+     [ngStyle]="{ 'background-color': visado.color }">
+
+  <div class="info-principal">
+    <div class="numero">{{ visado.numero }}</div>
+    <div class="estado">{{ visado.fase }}</div>
+  </div>
+
+  <div class="info-secundaria">
+    <div>Partida: {{ visado.partida }}</div>
+    <div class="descripcion">{{ visado.descripcion }}</div>
+  </div>
+
+  <div class="info-secundaria">
+    <div>Iniciado: {{ visado.inicio | date:'dd/MM/yyyy' }}</div>
+  </div>
+
+  <button mat-button class="boton-accion">
+    {{ visado.accion }}
+  </button>
+</div>

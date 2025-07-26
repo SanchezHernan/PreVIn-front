@@ -1,0 +1,87 @@
+<h2 class="text-center">{{ title }}</h2>
+
+<app-panel-info
+    [numero]="'3144'"
+    [estado]="'PRESENTADO'"
+    [partida]="'134232'"
+    [descripcion]="'Hasta 3 Pisos – Obra Nueva'"
+    [fechaInicio]="'08/01/2024'"
+/>
+
+<!-- PLANOS DE CONSTRUCCIÓN -->
+<mat-card class="seccion">
+  <div class="seccion-titulo">
+    PLANOS DE CONSTRUCCIÓN según Art. 2.1.3 del Código de Edificación
+  </div>
+
+  <div *ngFor="let plano of planos" class="fila drow">
+    <div class="col desc">{{ plano.descripcion }}</div>
+    <div class="col plano">{{ plano.nombreArchivo }}</div>
+    <div class="col iconos">
+      <mat-icon *ngIf="plano.estado === 'aprobado'" color="primary">check_circle</mat-icon>
+      <mat-icon *ngIf="plano.estado === 'rechazado'" color="warn">cancel</mat-icon>
+      <mat-icon *ngIf="plano.estado === 'pendiente'">hourglass_empty</mat-icon>
+      <span *ngIf="plano.mensajeEstado" class="texto-error">{{ plano.mensajeEstado }}</span>
+    </div>
+  </div>
+
+  
+</mat-card>
+
+<!-- PLANILLA DE VIVIENDA -->
+<mat-card class="seccion">
+  <div class="seccion-titulo">
+    PLANILLA DE CATEGORÍA DE VIVIENDA o CÓMPUTO Y PRESUPUESTO
+  </div>
+
+  <div *ngFor="let planilla of planillas" class="fila drow">
+    <div class="col desc">{{ planilla.descripcion }}</div>
+    <div class="col planilla">{{ planilla.nombreArchivo }}</div>
+    <div class="col iconos">
+      <mat-icon *ngIf="planilla.estado === 'aprobado'" color="primary">check_circle</mat-icon>
+      <mat-icon *ngIf="planilla.estado === 'rechazado'" color="warn">cancel</mat-icon>
+      <mat-icon *ngIf="planilla.estado === 'pendiente'">hourglass_empty</mat-icon>
+      <span *ngIf="planilla.mensajeEstado" class="texto-error">{{ planilla.mensajeEstado }}</span>
+    </div>
+  </div>
+</mat-card>
+
+<!-- BOTÓN AGREGAR -->
+<div class="agregar drow">
+  <mat-icon class="icono-agregar" fontIcon="add_circle" color="accent"></mat-icon>
+  <span class="texto-agregar">Solicitud de otro Plano/Planilla</span>
+</div>
+
+<!-- LISTA DE PLANOS ADICIONALES -->
+<mat-card class="extra-info">
+  <ul>
+    <li>INFORME DE HIGIENE Y SEGURIDAD del edificio</li>
+    <li>ESQUEMA DE CÁLCULO DE FOS - FOT</li>
+    <li>ESQUEMA DE ALTURA MÁXIMA Y LÍNEA DE FRENTE INTERNO</li>
+    <li>FACTIBILIDAD DE SERVICIOS SANITARIOS</li>
+    <li>FACTIBILIDAD DE SERVICIO ELÉCTRICO DE ENERSA para más de 4 unidades</li>
+    <li>PLANO VEREDA – RELEVAMIENTO ARBOLES (medidas, niveles, materialización)</li>
+  </ul>
+</mat-card>
+
+<!-- SOLICITUD DE CORRECCIÓN -->
+<mat-card class="solicitud-correccion">
+  <div class="seccion-titulo">
+    SOLICITUD DE PLANO VEREDA – RELEVAMIENTO ARBOLES (medidas, niveles, materialización)
+  </div>
+
+  <mat-form-field appearance="outline" class="campo-descripcion">
+    <mat-label>Descripción</mat-label>
+    <textarea matInput [(ngModel)]="correccionDescripcion"></textarea>
+  </mat-form-field>
+
+  <div class="iconos drow">
+    <mat-icon color="warn">cancel</mat-icon>
+    <mat-icon color="primary">check_circle</mat-icon>
+  </div>
+</mat-card>
+
+<app-botones-flotantes
+  (aprobar)="aprobar()"
+  (correcciones)="abrirCorrecciones()"
+></app-botones-flotantes>

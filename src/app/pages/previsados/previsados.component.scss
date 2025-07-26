@@ -1,0 +1,51 @@
+.catastral-wrapper {
+  background: var(--color-salmon);   // color salmón claro
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  &__title { line-height: 1; margin: .25rem 0; font-weight: 700; }
+  &__subtitle { margin-top: 1rem; }
+}
+
+.section-label { 
+  font-weight: 600; 
+  padding-top: 10px;
+}
+.card-title   { font-size: 1rem; font-weight: 700; }
+
+.row-flex { display: flex; flex-wrap: wrap; gap: 1rem; }
+.grid      { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px,1fr)); }
+.w-100     { width: 100%; }
+.w-60      { width: 60%; }
+.req       { color: #c00; }
+.mb-4      { margin-bottom: 1.5rem; }
+
+.destino-actions { display: flex; flex-direction: column; gap: .5rem; }
+.btn-group      { display: flex; gap: .5rem; justify-content: center; }
+
+.file-input {
+  font-size: .75rem;
+  height: calc(1.5em + .75rem + 2px);
+}
+
+
+.w120 { width: 120px; }
+.w159 { width: 159px; }
+.w257 { width: 257px; }
+.w75p { width: 75%; }
+
+.textAlignEnd {
+  text-align: end;
+}
+
+.mr5{
+  margin-right: 5px;
+}
+
