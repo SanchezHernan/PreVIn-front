@@ -25,7 +25,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrl: './evaluacion-catastral.component.scss'
 })
 export class EvaluacionCatastralComponent {
-
+  title = 'Evaluación Catastral'
   professional = 'Rodriguez Peña, Luciano Raúl (ARQUITECTO)';
 
   displayedColumns: string[] = ['tipoConstruccion', 'cantidad'];

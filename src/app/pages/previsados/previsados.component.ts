@@ -39,6 +39,7 @@ import { CircIconComponent } from '../../shared/circ-icon/circ-icon.component';
   ],
 })
 export class PrevisadosComponent implements OnInit {
+  title = 'Datos Catastrales'
   catastralForm!: FormGroup;
 
   /* --------- datos “constantes” del template ---------- */

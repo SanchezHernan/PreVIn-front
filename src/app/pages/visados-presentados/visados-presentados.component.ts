@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSelectModule } from '@angular/material/select';
-import {MatIcon, MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {FormsModule} from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectComponent } from '../../shared/mat-select/mat-select.component';
 import { VisadoCardComponent } from '../../shared/visado-card/visado-card.component';
 import { Partida } from '../../interfaces/partida';
@@ -24,7 +24,6 @@ import { Partida } from '../../interfaces/partida';
   styleUrl: './visados-presentados.component.scss'
 })
 export class VisadosPresentadosComponent {
-
   title = 'Visados Presentados'
   value = 'Clear me';
 

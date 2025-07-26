@@ -10,33 +10,27 @@ export const routes: Routes = [
     {   
         path: 'documentos-planos',
         component: DocumentosPlanosComponent,
-        title: 'Documentos y Planos'
     },
     {
         path: 'evaluacion-catastral',
         component: EvaluacionCatastralComponent,
-        title: 'Evaluación Catastral'
     },
     {
         path: 'evaluacion-obras-privadas',
         component: EvaluacionObrasPrivadasComponent,
-        title: 'Evaluación de Obras Privadas'
     },
     {
         path: 'mis-visados',
         component: MisVisadosComponent,
-        title: 'Mis Visados'
     },
     {
         path: 'previsados',
         component: PrevisadosComponent,
-        title: 'Datos Catastrales'
     },
     
     {
         path: 'visados-presentados',
         component: VisadosPresentadosComponent,
-        title: 'Visados Presentados'
     },
     
 ];

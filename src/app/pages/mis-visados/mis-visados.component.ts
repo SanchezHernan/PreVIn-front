@@ -11,7 +11,6 @@ import { VisadoCardComponent } from '../../shared/visado-card/visado-card.compon
   styleUrls: ['./mis-visados.component.scss']
 })
 export class MisVisadosComponent {
-
   title = 'Mis Visados';
   
   // Arrays de objetos literales (sin modelo)
