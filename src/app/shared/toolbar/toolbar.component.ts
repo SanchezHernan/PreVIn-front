@@ -27,6 +27,10 @@ export class ToolbarComponent {
     });
   }
 
+  goHome(): void {
+    this.router.navigateByUrl('/');
+  }
+
   isActive(route: string): boolean {
     return this.currentRoute === route;
   }

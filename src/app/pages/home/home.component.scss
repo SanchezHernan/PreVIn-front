@@ -1,0 +1,19 @@
+.home-container {
+  text-align: center;
+  padding: 2rem;
+
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+
+  .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  button {
+    min-width: 180px;
+  }
+}

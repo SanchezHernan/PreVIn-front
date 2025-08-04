@@ -16,6 +16,7 @@ import { MatButtonModule }  from '@angular/material/button';
 import { MatIconModule }    from '@angular/material/icon';
 import { MatCardModule }    from '@angular/material/card';
 import { CircIconComponent } from '../../shared/circ-icon/circ-icon.component';
+import { GreenButtonComponent } from '../../shared/green-button/green-button.component';
 
 @Component({
   selector: 'app-previsados',
@@ -35,7 +36,7 @@ import { CircIconComponent } from '../../shared/circ-icon/circ-icon.component';
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    
+    GreenButtonComponent
   ],
 })
 export class PrevisadosComponent implements OnInit {

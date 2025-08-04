@@ -24,6 +24,7 @@ import { CircIconComponent } from '../../shared/circ-icon/circ-icon.component';
   styleUrl: './documentos-planos.component.scss'
 })
 export class DocumentosPlanosComponent implements OnInit {
+  title = 'Documentos y Planos'
   form!: FormGroup;
 
   constructor(private fb: FormBuilder) {}

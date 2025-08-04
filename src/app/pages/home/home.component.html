@@ -1,0 +1,12 @@
+<!-- home.component.html -->
+<div class="home-container">
+  <h1>Bienvenido</h1>
+  <div class="button-group">
+    <button
+      *ngFor="let r of buttonRoutes"
+      mat-raised-button
+      [routerLink]="r.path">
+      {{ r.label }}
+    </button>
+  </div>
+</div>

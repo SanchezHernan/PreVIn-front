@@ -1,0 +1,12 @@
+/* Estilos que se aplican al <button> interno */
+button.mat-mdc-raised-button:not(:disabled) {
+  /* variables MDC para color de fondo y texto */
+  background-color: #4cd708;
+  color: white;
+  border-radius: 5px;
+  border: solid 1px black;
+
+  /* si aún así necesitas forzar directamente: */
+  /* background-color: #4caf50 !important;
+     color: white !important; */
+}

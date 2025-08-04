@@ -163,21 +163,21 @@
   <!-- Restricciones ----------------------------------------------------- -->
   <div class="mb-4 dcol border2">
     <mat-card-title class="card-title w120">RESTRICCIONES</mat-card-title>
-    <div class="grid gap-2 dcol">
+    <div class="gap-2 dcol" style="padding: 1rem 2rem 0 0;">
       <div class="drow">
-        <label class="w75p textAlignEnd mr5" for="lotes">LOTES +5000 m² (Prolongación de calles):</label>
+        <span class="w75p textAlignEnd mr5">LOTES +5000 m² (Prolongación de calles):</span>
         <input type="file" id="lotes" (change)="onFileSelected($event, 'fileLotes5000')" class="file-input" />
       </div>
       <div class="drow">
-        <label class="w75p textAlignEnd mr5" for="canadas">CAÑADAS:</label>
+        <span class="w75p textAlignEnd mr5">CAÑADAS:</span>
         <input type="file" id="canadas" (change)="onFileSelected($event, 'fileCanadas')" class="file-input" />
       </div>
       <div class="drow">
-        <label class="w75p textAlignEnd mr5" for="gasnea">RESTRICCIONES GAS NEA:</label>
+        <span class="w75p textAlignEnd mr5">RESTRICCIONES GAS NEA:</span>
         <input type="file" id="gasnea" (change)="onFileSelected($event, 'fileGasNea')" class="file-input" />
       </div>
       <div class="drow">
-        <label class="w75p textAlignEnd mr5" for="enersa">RESTRICCIONES ENERSA:</label>
+        <span class="w75p textAlignEnd mr5">RESTRICCIONES ENERSA:</span>
         <input type="file" id="enersa" (change)="onFileSelected($event, 'fileEnersa')" class="file-input" />
       </div>
     </div>
@@ -238,8 +238,8 @@
 
   <!-- Botón principal --------------------------------------------------- -->
   <div class="text-center mb-4 drow" style="justify-content: center;">
-    <button mat-raised-button color="primary" type="submit">
+    <app-green-button routerLink="/evaluacion-catastral" type="submit">
       Presentar Datos Catastrales
-    </button>
+    </app-green-button>
   </div>
 </form>
