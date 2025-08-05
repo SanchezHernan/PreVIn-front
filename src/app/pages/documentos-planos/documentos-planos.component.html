@@ -1,4 +1,4 @@
-<div class="documentos-wrapper">
+<div [formGroup]="form" class="documentos-wrapper">
   <!-- Encabezado -->
   <div class="text-center">
     <div class="drow jc-space-around">
@@ -8,19 +8,19 @@
         <app-circ-icon icon="map" />
       </div>
       <!-- <mat-icon class="icon-lg">map</mat-icon> -->
-      <h2><b>Documentos</b><br />y Planos</h2>
+      <h2><b>Documentos</b><br/>y Planos</h2>
     </div>
     <h4>Rodriguez Peña, Luciano Raúl (ARQUITECTO)</h4>
     <h5 class="subtitulo">Relevamiento/Conforme a Obra</h5>
   </div>
 
   <!-- Sección: Planos de construcción -->
-  <div class="dcol border2">
+  <div class="dcol border2" formArrayName="planosConstruccion">
     <mat-card-title class="card-title2 w509">
       PLANOS DE CONSTRUCCIÓN según Art. 2.1.3 del Código de Edificación
     </mat-card-title>
 
-    <div *ngFor="let plano of planosConstruccion.controls; let i = index" [formGroup]="plano" class="fila-item">
+    <div *ngFor="let plano of planosConstruccion.controls; let i = index" [formGroupName]="i" class="fila-item">
       
       <div class="dcol">
         <h3>Plano de primer corte</h3>
@@ -52,12 +52,12 @@
   <br>
 
   <!-- Sección: Planillas de vivienda o cómputo -->
-  <div class="dcol border2">
+  <div class="dcol border2" formArrayName="planillasVivienda">
     <mat-card-title class="card-title2 w503">
       PLANILLA DE CATEGORÍA DE VIVIENDA o CÓMPUTO Y PRESUPUESTO
     </mat-card-title>
 
-    <div *ngFor="let planilla of planillasVivienda.controls; let j = index" [formGroup]="planilla" class="fila-item">
+    <div *ngFor="let planilla of planillasVivienda.controls; let j = index" [formGroupName]="j" class="fila-item">
       <div class="dcol">
         <h3>Primer Planilla de Cat de Vivienda</h3>
         <mat-form-field class="campo-desc" appearance="outline">
@@ -105,11 +105,11 @@
   </div>
 
 
-  <div class="dcol border2" style="margin-bottom: 10px;">
+  <div class="dcol border2" formArrayName="planosConstruccion" style="margin-bottom: 10px;">
     <mat-card-title class="card-title2 w503">
       PLANO VEREDA - RELEVAMIENTO ARBOLES (medidas, niveles, materilalización) 
     </mat-card-title>
-    <div class="fila-item">
+    <div [formGroupName]="1" class="fila-item">
       <div class="dcol">
         <h3>Plano Vereda v1</h3>
         <mat-form-field class="campo-desc" appearance="outline">

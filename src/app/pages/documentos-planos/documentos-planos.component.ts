@@ -7,9 +7,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { CircIconComponent } from '../../shared/circ-icon/circ-icon.component';
+import { M } from '@angular/cdk/keycodes';
 
 @Component({
   selector: 'app-documentos-planos',
+  standalone: true,
   imports: [
     CircIconComponent,
     CommonModule,
@@ -21,19 +23,25 @@ import { CircIconComponent } from '../../shared/circ-icon/circ-icon.component';
     MatIconModule,
   ],
   templateUrl: './documentos-planos.component.html',
-  styleUrl: './documentos-planos.component.scss'
+  styleUrls: ['./documentos-planos.component.scss']
 })
 export class DocumentosPlanosComponent implements OnInit {
   title = 'Documentos y Planos'
   form!: FormGroup;
+  veredaGroup!: FormGroup;
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      planosConstruccion: this.fb.array([this.createPlano()]),
+      planosConstruccion: this.fb.array([
+        this.createPlano(),
+        this.createPlano()
+      ]),
       planillasVivienda: this.fb.array([this.createPlano()]),
     });
+
+    // this.veredaGroup = this.createPlano(); // en vez de 2 planoContrusccion
   }
 
   createPlano(): FormGroup {
